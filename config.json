@@ -1,6 +1,6 @@
 {
     "token":"TOKENHERE",
-    "autodelete":300,
+    "autodelete":500,
     "prefix":"!",
     "guild":false,
     "id":637173822
