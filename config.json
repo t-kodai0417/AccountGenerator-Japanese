@@ -1,5 +1,7 @@
 {
     "token":"TOKENHERE",
     "autodelete":300,
-    "prefix":"!"
+    "prefix":"!",
+    "guild":False,
+    "id":637173822
 }
