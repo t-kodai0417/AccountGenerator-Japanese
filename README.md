@@ -1,4 +1,4 @@
-#暇だったらReadMeを日本語化するわ
+# 暇だったらReadMeを日本語化するわ
 # Discord Account Generator Bot
 ## _Starter Code For Your Own Generator Bot_
 
