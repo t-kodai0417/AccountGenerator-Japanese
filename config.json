@@ -2,6 +2,5 @@
     "token":"TOKENHERE",
     "autodelete":500,
     "prefix":"!",
-    "guild":false,
-    "id":637173822
+    "chid":"637173822,12424324"
 }
