@@ -78,7 +78,7 @@ async def gen(ctx,name=None):
                                         file.write(line+"\n") # Add other lines to file
 
 @bot.command() #Gen command
-async def add_item(ctx):
+async def additem(ctx):
   if ctx.author.guild_permissions.administrator:
     if str(ctx.channel.id)in channel_id:
       #print("")
