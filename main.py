@@ -131,10 +131,10 @@ async def stockdel(ctx,name=None):
     if str(ctx.channel.id)in channel_id:
         if ctx.author.guild_permissions.administrator:
             if name == None:
-                await ctx.send("hikisuu") # Say error if no name specified
+                await ctx.send("引数が指定されていません。") # Say error if no name specified
             else:
                 name = name.lower()+".txt" #Add the .txt ext
-                await ctx.send("hontouniii?")
+                await ctx.send("本当によろしいですか？\nYes or No")
                 try:
                     user = await bot.wait_for("message",check=check,timeout=60)
                     yesorno=user.content.lower()
@@ -142,11 +142,11 @@ async def stockdel(ctx,name=None):
                         try:
                             import os
                             os.remove("Accounts/"+name)
-                            await ctx.send("seikou")
+                            await ctx.send("成功しました。")
                         except:
-                            await ctx.send("sippai")
+                            await ctx.send("失敗しました。")
                     else:
-                        await ctx.send("kyanseru")
+                        await ctx.send("キャンセルされました。")
             
                 except asyncio.TimeoutError:
                     await ctx.send("タイムアウトしました。")
