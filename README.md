@@ -6,8 +6,7 @@
 This is a account generator bot that is very easy for newbies to understand. There are comments in the source code of the [_main.py_](https://github.com/MicxYT/Discord-Account-Generator-Bot/blob/main/main.py) file. All you need to do to use the bot is to edit the info in the [_config.json_](https://github.com/MicxYT/Discord-Account-Generator-Bot/blob/main/config.json) file then add accounts in the [accounts](https://github.com/MicxYT/Discord-Account-Generator-Bot/tree/main/Accounts) folder. Then boom. Done
 
 - Account filenames need to be lowercased!
-- Join the [discord](https://discord.gg/3mD8Cvz6gQ) if you want a better bot
-- ✨Micx✨
+
 
 ## Features
 
