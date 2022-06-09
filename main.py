@@ -90,7 +90,7 @@ async def add_item(ctx):
       await ctx.send("在庫が見られないように管理者だけのチャットで実行することをお勧めします。\nアイテムの名前を入力してください。\n例:Minecraft")
       try:
           user = await bot.wait_for("message",check=check,timeout=60)
-          file_hozon=user.content
+          file_hozon=user.content.lower()
        
   
       except asyncio.TimeoutError:
@@ -99,9 +99,13 @@ async def add_item(ctx):
       await ctx.send("在庫を入力してください:\n例:sample@gmail.com:12345")
       try:
           user = await bot.wait_for("message",check=check,timeout=60)
-          #user.content
-          with open("Accounts\\"+file_hozon+".txt") as file:
-            if file.read()=="":
+          try:
+            with open("Accounts\\"+file_hozon+".txt","r") as file:
+                binary_data=file.read()
+          except:
+              binary_data=""
+          with open("Accounts\\"+file_hozon+".txt","a") as file:
+            if binary_data=="":
               file.write(user.content)
             else:
               file.write('\n'+user.content)
@@ -112,5 +116,34 @@ async def add_item(ctx):
           return
 
 
+@bot.command() #Gen command
+async def delete(ctx,name=None):
+    def check(user):
+        return user.channel == ctx.channel and user.author==ctx.author
+    if str(ctx.channel.id)in channel_id:
+        if ctx.author.guild_permissions.administrator:
+            if name == None:
+                await ctx.send("hikisuu") # Say error if no name specified
+            else:
+                name = name.lower()+".txt" #Add the .txt ext
+                await ctx.send("hontouniii?")
+                try:
+                    user = await bot.wait_for("message",check=check,timeout=60)
+                    yesorno=user.content.lower()
+                    if yesorno=="yes":
+                        try:
+                            import os
+                            os.remove("Accounts/"+name)
+                            await ctx.send("seikou")
+                        except:
+                            await ctx.send("sippai")
+                    else:
+                        await ctx.send("kyanseru")
+            
+                except asyncio.TimeoutError:
+                    await ctx.send("タイムアウトしました。")
+                    return
+                
+                
 
 bot.run(token)
