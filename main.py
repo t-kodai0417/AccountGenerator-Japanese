@@ -117,7 +117,7 @@ async def add_item(ctx):
 
 
 @bot.command() #Gen command
-async def delete(ctx,name=None):
+async def stockdel(ctx,name=None):
     def check(user):
         return user.channel == ctx.channel and user.author==ctx.author
     if str(ctx.channel.id)in channel_id:
