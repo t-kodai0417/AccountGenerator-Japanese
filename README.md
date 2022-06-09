@@ -7,7 +7,7 @@ This is a account generator bot that is very easy for newbies to understand. The
 
 - Account filenames need to be lowercased!
 
-## **必須** 設定(json)の変更方法↓
+## **【必須】** 設定(json)の変更方法↓
 ![N|Solid](https://i.imgur.com/M0hi2V9_d.webp?maxwidth=1520&amp;fidelity=grand)
 
 ## Features
