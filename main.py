@@ -29,7 +29,7 @@ with open("config.json") as file: # Load the config file
     prefix = info["prefix"]
     channel_id=info["chid"].split(",")
 
-bot = commands.Bot(command_prefix=prefix)
+bot = commands.Bot(command_prefix=prefix,help_command=None)
 
 @bot.event
 async def on_ready():
@@ -45,7 +45,15 @@ async def stock(ctx):
                     stockmenu.description += f"*{name}* - {ammount}\n" # Add to the embed
             await ctx.send(embed=stockmenu) # Send the embed
 
-
+@bot.command()
+async def help(ctx):
+        embed=discord.Embed(title="コマンド集", color=0xe90001)
+        embed.add_field(name="!help", value="このコマンド集を表示させる", inline=True)
+        embed.add_field(name="!gen <item>", value="genコマンド。", inline=True)
+        embed.add_field(name="!stock", value="ストックが確認できる。", inline=True)
+        embed.add_field(name="!additem", value="ストック追加コマンド。(admin)", inline=True)
+        embed.add_field(name="!stockdel <item>", value="ストックのテキストファイルを削除する。(admin)", inline=True)
+        await ctx.send(embed=embed)
 
 @bot.command() #Gen command
 async def gen(ctx,name=None):
