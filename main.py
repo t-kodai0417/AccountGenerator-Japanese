@@ -20,6 +20,7 @@ FORKED BY Kodai#2008. DISCORD SERVER: https://discord.gg/brazilshop"""
 print(credits)
 import discord,json,os,random
 from discord.ext import commands
+import asyncio
 
 with open("config.json") as file: # Load the config file
     info = json.load(file)
@@ -75,4 +76,41 @@ async def gen(ctx,name=None):
                                 for line in lines: #Add the lines back
                                     if line != account: #Dont add the account back to the file
                                         file.write(line+"\n") # Add other lines to file
+
+@bot.command() #Gen command
+async def add_item(ctx):
+  if ctx.author.guild_permissions.administrator:
+    if str(ctx.channel.id)in channel_id:
+      #print("")
+      def check(user):
+        return user.channel == ctx.channel and user.author==ctx.author
+  
+      #args=ctx.content.split()
+      #buyer=ctx.member
+      await ctx.send("かんりしゃちゃんねるで")
+      try:
+          user = await bot.wait_for("message",check=check,timeout=60)
+          file_hozon=user.content
+       
+  
+      except asyncio.TimeoutError:
+          await ctx.send("タイムアウトしました。")
+          return
+      await ctx.send("zaiko")
+      try:
+          user = await bot.wait_for("message",check=check,timeout=60)
+          #user.content
+          with open("Accounts\\"+file_hozon+".txt") as file:
+            if file.read()=="":
+              file.write(user.content)
+            else:
+              file.write('\n'+user.content)
+          await ctx.send(f"{file_hozon}に{user.content} を追加しました。")
+  
+      except asyncio.TimeoutError:
+          await ctx.send("タイムアウトしました。")
+          return
+
+
+
 bot.run(token)
