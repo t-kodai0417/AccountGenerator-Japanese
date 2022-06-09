@@ -87,7 +87,7 @@ async def add_item(ctx):
   
       #args=ctx.content.split()
       #buyer=ctx.member
-      await ctx.send("かんりしゃちゃんねるで")
+      await ctx.send("在庫が見られないように管理者だけのチャットで実行することをお勧めします。\nアイテムの名前を入力してください。\n例:Minecraft")
       try:
           user = await bot.wait_for("message",check=check,timeout=60)
           file_hozon=user.content
@@ -96,7 +96,7 @@ async def add_item(ctx):
       except asyncio.TimeoutError:
           await ctx.send("タイムアウトしました。")
           return
-      await ctx.send("zaiko")
+      await ctx.send("在庫を入力してください:\n例:sample@gmail.com:12345")
       try:
           user = await bot.wait_for("message",check=check,timeout=60)
           #user.content
